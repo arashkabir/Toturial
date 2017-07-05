@@ -68,9 +68,9 @@ export function createComponentFactory(compiler: Compiler, metadata: Component, 
         constructor() { 
             this.row = data;           
         }
-        onclick(customData:{}){
-            this.clickEvent.next(customData);
-        }
+        //onclick(customData:{}){
+        //    this.clickEvent.next(customData);
+        //}
     };
     const decoratedCmp = Component(metadata)(cmpClass);
 
@@ -113,9 +113,9 @@ export class CGridCellComponent {
         .then(factory => {
             const injector = ReflectiveInjector.fromResolvedProviders([], this.vcRef.parentInjector);   
             this.cmpRef = this.vcRef.createComponent(factory, 0, injector, []);
-            this.cmpRef.instance.clickEvent.subscribe(customData => {
-                this.fireClickEvent(customData);
-            });
+            //this.cmpRef.instance.clickEvent.subscribe(customData => {
+            //    this.fireClickEvent(customData); 
+           // });
         });        
     }
     fireClickEvent(data: {}){

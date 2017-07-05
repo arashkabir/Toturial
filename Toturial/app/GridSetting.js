@@ -5,9 +5,10 @@ var gridSetting = (function () {
         this.sortColumn = '';
         this.selectedItem = [];
         this.pageSize = 10;
-        this.pageNumber = 0;
-        this.memoryGrid = false;
-        this.allowPaging = false;
+        this.pageNumber = 1;
+        this.memoryGrid = true;
+        this.allowPaging = true;
+        this.showtotalPages = 5;
     }
     return gridSetting;
 }());

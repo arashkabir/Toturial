@@ -1,4 +1,4 @@
 ﻿<h1>Hello {{name}}</h1>
 <button (click)="ChangeData()">Click Me</button>
-<my-toturials [data]="data" ></my-toturials>
+<my-toturials [data]="data" (ChangeEvent)="gridUpdate($event)" ></my-toturials>
 

@@ -1,8 +1,9 @@
-﻿import { Component, ViewChild, ViewContainerRef, Renderer, ViewChildren, Input, OnChanges, ElementRef} from '@angular/core';
+﻿import { Component, ViewChild, ViewContainerRef, Renderer, ViewChildren, Input,Output, OnChanges, ElementRef, EventEmitter, Injectable} from '@angular/core';
 import { IProduct } from './product';
 import { productservice } from './product.service';
 import { CGridComponent, CCellDataService, Column, GridOption } from './cgrid.component';
-import { gridSetting} from './gridSetting'
+import { gridSetting } from './gridSetting';
+import { gridInputData } from './gridInputData';
 //import { RedComponentComponent } from "../red-component/red-component.component";
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -19,23 +20,75 @@ import 'rxjs/add/operator/map';
 )
 export class TutorialsComponent implements OnChanges  {
     columns: string[] = ['ProductID', 'ProductName'];
-    @Input() data:Array<any>;
+    @Input() data: gridInputData;
     private  tempData: Array<any>=[];
 
     @Input() setting: gridSetting=new gridSetting();
     @ViewChildren('test') input:any;
     @ViewChild('headerCheckBox') headerCheckBox: any;
- 
-    
-     iproducts: IProduct[];
-     constructor(private _product: productservice, private renderer: Renderer, private elementRef: ElementRef) {
+    @Output() ChangeEvent = new EventEmitter<gridSetting>();
+    @Output() SelectedItem = new EventEmitter<any>();
 
+     //iproducts: IProduct[];
+     constructor(private _product: productservice, private renderer: Renderer, private elementRef: ElementRef) {
+     }
+
+     getTotalPages():number {
+         var totalPageNumber: number = this.data.Total / this.setting.pageSize;
+
+         if ( this.data.Total % this.setting.pageSize > 0)
+         {
+             totalPageNumber = totalPageNumber + 1;
+         }
+         return totalPageNumber;
      }
 
 
+     getPageRange() {
+         let pages: number[] = [];
+         let startPage: number;
+         let endPage: number;
+         let totalPages: number = this.getTotalPages();
+         if (totalPages <= 10) {
+             // less than 10 total pages so show all
+             startPage = 1;
+             endPage = totalPages;
+         } else {
+             // more than 10 total pages so calculate start and end pages
+             if (this.setting.pageNumber <= 6) {
+                 startPage = 1;
+                 endPage = 10;
+             } else if (this.setting.pageNumber + 4 >= totalPages) {
+                 startPage = totalPages - 9;
+                 endPage = totalPages;
+             } else {
+                 startPage = this.setting.pageNumber - 5;
+                 endPage = startPage + 9;
+             }
+         }
+         for (let value = startPage; value <= endPage; value++) {
+             pages.push(value);
+         }
+         return pages;
+     }
+
+     isLastPageDisabled() {
+         if (this.setting) {
+             if (this.setting.pageNumber && this.getTotalPages()) {
+                 if (this.setting.pageNumber == this.getTotalPages()) {
+                     return 'disabled';
+                 }
+             } else {
+                 return '';
+             }
+         } else {
+             return '';
+         }
+     }
+
      isFirstPageDisabled() {
          if (this.setting) {
-             if (this.setting.pageNumber && this.gridOption.totalPage) {
+             if (this.setting.pageNumber ) {
                  if (this.setting.pageNumber == 1) {
                      return 'disabled';
                  }
@@ -47,18 +100,30 @@ export class TutorialsComponent implements OnChanges  {
          }
      }
 
+     onPageChange(currentPage: number) {
+         if (currentPage > this.getTotalPages()) {
+             currentPage = this.getTotalPages();
+         } else if (currentPage < 1) {
+             currentPage = 1;
+         } 
+
+         this.setting.pageNumber = currentPage;
+         this.getPageData();
+         this.ChangeEvent.emit(this.setting);
+ 
+     }
+
      ngOnChanges(changes: any ) {
-         console.log('Change detected:', changes);
          this.setting.sortDirection = '';
          this.setting.sortColumn = '';
          this.setting.selectedItem = [];
-         this.setting.pageNumber = 0;
+         this.setting.pageNumber = 1;
          this.headerCheckBox.nativeElement.checked = false;
          this.getPageData();
+         this.ChangeEvent.emit(this.setting);
      }
 
      sortColumns(column: string) {
-         console.log(column);
          if (column == this.setting.sortColumn) {
              if (this.setting.sortDirection=='asc')
                  this.setting.sortDirection = 'desc'
@@ -69,11 +134,11 @@ export class TutorialsComponent implements OnChanges  {
              this.setting.sortColumn = column;
              this.setting.sortDirection = 'asc';
          }
+
+         this.ChangeEvent.emit(this.setting);
     
      }
      selectAll(selected:boolean) {
-        // this.selectedItem = this.simpleClone(this.data);
-       //  this.input.nativeElement.checked = true;
          
          for (let entry of this.input._results) {
              entry.nativeElement.checked = selected;
@@ -82,15 +147,14 @@ export class TutorialsComponent implements OnChanges  {
          if (selected)
          {
              this.setting.selectedItem = [];
-             for (let item1 of this.data) {
-                 console.log(item1);
+             for (let item1 of this.data.Data) {
                  this.setting.selectedItem.push(item1);
              }
          }
              else
              this.setting.selectedItem = [];
 
-         console.log(selected);
+         this.ChangeEvent.emit(this.setting);
      }
 
 
@@ -104,9 +168,10 @@ export class TutorialsComponent implements OnChanges  {
                    this.setting.selectedItem.splice(index,1);
          }
 
-               console.log(this.setting.selectedItem);
                //headerCheckBox.getElement
                this.headerCheckBox.nativeElement.checked = false;
+
+               this.ChangeEvent.emit(this.setting);
      }
 
      onGridReady(params:any) {
@@ -122,18 +187,17 @@ export class TutorialsComponent implements OnChanges  {
      }
 
     getPageData() {
-        // reset the temp value
-        console.log(this.data.length);
         this.tempData = [];
 
-        if (this.setting.memoryGrid) {
-            for (var i = this.setting.pageNumber * this.setting.pageSize; i < this.data.length && i < (this.setting.pageNumber * this.setting.pageSize) + this.setting.pageSize; i++) {
-                console.log(i);
-                this.tempData.push(this.data[i]);
+        if (this.setting.memoryGrid && this.setting.allowPaging) {
+            var i = (this.setting.pageNumber - 1) * this.setting.pageSize;
+            console.log(i);
+            for (i;  i<this.data.Data.length && i < (this.setting.pageNumber * this.setting.pageSize) + this.setting.pageSize; i++) {
+                this.tempData.push(this.data.Data[i]);
+              //  console.log(this.setting.pageNumber);
             }
         }
         else
-            this.tempData = this.data;
-        console.log(this.tempData);
+            this.tempData = this.data.Data;
     }
 }
