@@ -10,488 +10,497 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
         this.name = 'Angular 2';
-        this.data = [
-            {
-                "ProductID": 1,
-                "ProductName": "ProductA"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            },
-            {
-                "ProductID": 2,
-                "ProductName": "ProductB"
-            }
-        ];
+        this.data = {
+            'Total': 100,
+            'Data': [
+                {
+                    "ProductID": 1,
+                    "ProductName": "ProductA"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2,
+                    "ProductName": "ProductB"
+                },
+                {
+                    "ProductID": 2000,
+                    "ProductName": "ProductB"
+                }
+            ]
+        };
     }
+    AppComponent.prototype.gridUpdate = function (event) {
+        console.log(event);
+    };
     AppComponent.prototype.ChangeData = function () {
-        this.data = [
-            {
-                "ProductID": 3,
-                "ProductName": "Productc"
-            },
-            {
-                "ProductID": 4,
-                "ProductName": "Productd"
-            }
-        ];
+        this.data = {
+            'Total': 2,
+            'Data': [
+                {
+                    "ProductID": 3,
+                    "ProductName": "Productc"
+                },
+                {
+                    "ProductID": 4,
+                    "ProductName": "Productd"
+                }
+            ]
+        };
     };
     return AppComponent;
 }());

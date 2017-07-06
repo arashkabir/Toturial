@@ -81,9 +81,6 @@ function createComponentFactory(compiler, metadata, data) {
             this.clickEvent = new core_1.EventEmitter();
             this.row = data;
         }
-        DynamicComponent.prototype.onclick = function (customData) {
-            this.clickEvent.next(customData);
-        };
         return DynamicComponent;
     }());
     var decoratedCmp = core_1.Component(metadata)(cmpClass);
@@ -123,9 +120,9 @@ var CGridCellComponent = (function () {
             .then(function (factory) {
             var injector = core_1.ReflectiveInjector.fromResolvedProviders([], _this.vcRef.parentInjector);
             _this.cmpRef = _this.vcRef.createComponent(factory, 0, injector, []);
-            _this.cmpRef.instance.clickEvent.subscribe(function (customData) {
-                _this.fireClickEvent(customData);
-            });
+            //this.cmpRef.instance.clickEvent.subscribe(customData => {
+            //    this.fireClickEvent(customData); 
+            // });
         });
     };
     CGridCellComponent.prototype.fireClickEvent = function (data) {
