@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-require('rxjs/add/operator/map');
-require('rxjs/add/operator/do');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/do");
 var productservice = (function () {
     function productservice(_http) {
         this._http = _http;
@@ -22,11 +23,11 @@ var productservice = (function () {
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log(JSON.stringify(data)); });
     };
-    productservice = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], productservice);
     return productservice;
 }());
+productservice = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], productservice);
 exports.productservice = productservice;
 //# sourceMappingURL=product.service.js.map

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var gridSetting = (function () {
     function gridSetting() {
         this.sortDirection = '';

@@ -8,11 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var product_service_1 = require('./product.service');
-var cgrid_component_1 = require('./cgrid.component');
-var gridSetting_1 = require('./gridSetting');
-require('rxjs/add/operator/map');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var product_service_1 = require("./product.service");
+var cgrid_component_1 = require("./cgrid.component");
+var gridSetting_1 = require("./gridSetting");
+require("rxjs/add/operator/map");
 var TutorialsComponent = (function () {
     function TutorialsComponent(_product, renderer, elementRef) {
         this._product = _product;
@@ -113,32 +114,32 @@ var TutorialsComponent = (function () {
             this.tempData = this.data;
         console.log(this.tempData);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], TutorialsComponent.prototype, "data", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', gridSetting_1.gridSetting)
-    ], TutorialsComponent.prototype, "setting", void 0);
-    __decorate([
-        core_1.ViewChildren('test'), 
-        __metadata('design:type', Object)
-    ], TutorialsComponent.prototype, "input", void 0);
-    __decorate([
-        core_1.ViewChild('headerCheckBox'), 
-        __metadata('design:type', Object)
-    ], TutorialsComponent.prototype, "headerCheckBox", void 0);
-    TutorialsComponent = __decorate([
-        core_1.Component({
-            selector: 'my-toturials',
-            templateUrl: './app/tutorial.component.html',
-            styles: ['h2 {color:Red}'],
-            providers: [product_service_1.productservice, cgrid_component_1.CCellDataService]
-        }), 
-        __metadata('design:paramtypes', [product_service_1.productservice, core_1.Renderer, core_1.ElementRef])
-    ], TutorialsComponent);
     return TutorialsComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], TutorialsComponent.prototype, "data", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", gridSetting_1.gridSetting)
+], TutorialsComponent.prototype, "setting", void 0);
+__decorate([
+    core_1.ViewChildren('test'),
+    __metadata("design:type", Object)
+], TutorialsComponent.prototype, "input", void 0);
+__decorate([
+    core_1.ViewChild('headerCheckBox'),
+    __metadata("design:type", Object)
+], TutorialsComponent.prototype, "headerCheckBox", void 0);
+TutorialsComponent = __decorate([
+    core_1.Component({
+        selector: 'my-toturials',
+        templateUrl: './app/tutorial.component.html',
+        styles: ['h2 {color:Red}'],
+        providers: [product_service_1.productservice, cgrid_component_1.CCellDataService]
+    }),
+    __metadata("design:paramtypes", [product_service_1.productservice, core_1.Renderer, core_1.ElementRef])
+], TutorialsComponent);
 exports.TutorialsComponent = TutorialsComponent;
 //# sourceMappingURL=tutorial.component.js.map
