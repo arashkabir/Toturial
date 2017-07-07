@@ -20,18 +20,37 @@ var TutorialsComponent = (function () {
         this._product = _product;
         this.renderer = renderer;
         this.elementRef = elementRef;
-        this.columns = ['ProductID', 'ProductName'];
+        this.columns = []; // string[] = ['ProductID', 'ProductName'];
         this.tempData = [];
         this.setting = new gridSetting_1.gridSetting();
         this.ChangeEvent = new core_1.EventEmitter();
         this.SelectedItem = new core_1.EventEmitter();
+        this.rowEvent = new core_1.EventEmitter();
     }
     TutorialsComponent.prototype.getTotalPages = function () {
-        var totalPageNumber = this.data.Total / this.setting.pageSize;
+        var totalPageNumber = Math.floor(this.data.Total / this.setting.pageSize);
+        console.log(totalPageNumber);
         if (this.data.Total % this.setting.pageSize > 0) {
             totalPageNumber = totalPageNumber + 1;
         }
         return totalPageNumber;
+    };
+    TutorialsComponent.prototype.cellHtml = function (row, column) {
+        var text;
+        if (column.formatCell)
+            text = column.formatCell(row, row[column.propertyName]);
+        else
+            text = row[column.propertyName];
+        // switch (column.columnType)
+        //{
+        //     case columnType.link:
+        //         text = '<a href="#" (click)= clicked("ff") >' + row[column.propertyName] + '</a>';
+        //         break;
+        //     case columnType.checkBox:
+        //         text = '<input type="checkbox" name= "vehicle" checked >';
+        //         break;
+        //}
+        return text;
     };
     TutorialsComponent.prototype.getPageRange = function () {
         var pages = [];
@@ -64,6 +83,7 @@ var TutorialsComponent = (function () {
         return pages;
     };
     TutorialsComponent.prototype.isLastPageDisabled = function () {
+        console.log(this.setting.pageNumber);
         if (this.setting) {
             if (this.setting.pageNumber && this.getTotalPages()) {
                 if (this.setting.pageNumber == this.getTotalPages()) {
@@ -103,6 +123,7 @@ var TutorialsComponent = (function () {
         this.setting.pageNumber = currentPage;
         this.getPageData();
         this.ChangeEvent.emit(this.setting);
+        console.log(this.setting.pageNumber);
     };
     TutorialsComponent.prototype.ngOnChanges = function (changes) {
         this.setting.sortDirection = '';
@@ -154,6 +175,8 @@ var TutorialsComponent = (function () {
         this.headerCheckBox.nativeElement.checked = false;
         this.ChangeEvent.emit(this.setting);
     };
+    TutorialsComponent.prototype.controlClickEvent = function (data, eventName) {
+    };
     TutorialsComponent.prototype.onGridReady = function (params) {
         params.api.sizeColumnsToFit();
     };
@@ -162,6 +185,10 @@ var TutorialsComponent = (function () {
     };
     TutorialsComponent.prototype.onClick = function (value) {
         console.log(value);
+    };
+    TutorialsComponent.prototype.controlEventClick = function (data, eventName) {
+        console.log(data);
+        console.log(eventName);
     };
     TutorialsComponent.prototype.getPageData = function () {
         this.tempData = [];
@@ -176,6 +203,11 @@ var TutorialsComponent = (function () {
             this.tempData = this.data.Data;
     };
     __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], TutorialsComponent.prototype, "columns", void 0);
+    __decorate([
+        // string[] = ['ProductID', 'ProductName'];
         core_1.Input(), 
         __metadata('design:type', gridInputData_1.gridInputData)
     ], TutorialsComponent.prototype, "data", void 0);
@@ -199,6 +231,10 @@ var TutorialsComponent = (function () {
         core_1.Output(), 
         __metadata('design:type', Object)
     ], TutorialsComponent.prototype, "SelectedItem", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], TutorialsComponent.prototype, "rowEvent", void 0);
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-toturials',

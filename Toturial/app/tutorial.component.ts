@@ -4,6 +4,7 @@ import { productservice } from './product.service';
 import { CGridComponent, CCellDataService, Column, GridOption } from './cgrid.component';
 import { gridSetting } from './gridSetting';
 import { gridInputData } from './gridInputData';
+import { column, columnType, rowEvent } from './column';
 //import { RedComponentComponent } from "../red-component/red-component.component";
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -19,7 +20,7 @@ import 'rxjs/add/operator/map';
     }
 )
 export class TutorialsComponent implements OnChanges  {
-    columns: string[] = ['ProductID', 'ProductName'];
+    @Input() columns: Array<column> = [];// string[] = ['ProductID', 'ProductName'];
     @Input() data: gridInputData;
     private  tempData: Array<any>=[];
 
@@ -28,14 +29,14 @@ export class TutorialsComponent implements OnChanges  {
     @ViewChild('headerCheckBox') headerCheckBox: any;
     @Output() ChangeEvent = new EventEmitter<gridSetting>();
     @Output() SelectedItem = new EventEmitter<any>();
-
+    @Output() rowEvent = new EventEmitter<rowEvent>();
      //iproducts: IProduct[];
      constructor(private _product: productservice, private renderer: Renderer, private elementRef: ElementRef) {
      }
 
      getTotalPages():number {
-         var totalPageNumber: number = this.data.Total / this.setting.pageSize;
-
+         var totalPageNumber: number = Math.floor(this.data.Total / this.setting.pageSize);
+         console.log(totalPageNumber);
          if ( this.data.Total % this.setting.pageSize > 0)
          {
              totalPageNumber = totalPageNumber + 1;
@@ -43,7 +44,26 @@ export class TutorialsComponent implements OnChanges  {
          return totalPageNumber;
      }
 
+     cellHtml(row: any, column: column): string {
+         var text: string;
 
+         if (column.formatCell)
+             text= column.formatCell(row, row[column.propertyName]);
+         else
+             text= row[column.propertyName];
+
+        // switch (column.columnType)
+        //{
+        //     case columnType.link:
+        //         text = '<a href="#" (click)= clicked("ff") >' + row[column.propertyName] + '</a>';
+        //         break;
+        //     case columnType.checkBox:
+        //         text = '<input type="checkbox" name= "vehicle" checked >';
+        //         break;
+        //}
+
+         return text;
+     }
      getPageRange() {
          let pages: number[] = [];
          let startPage: number;
@@ -73,6 +93,7 @@ export class TutorialsComponent implements OnChanges  {
      }
 
      isLastPageDisabled() {
+         console.log(this.setting.pageNumber);
          if (this.setting) {
              if (this.setting.pageNumber && this.getTotalPages()) {
                  if (this.setting.pageNumber == this.getTotalPages()) {
@@ -110,7 +131,7 @@ export class TutorialsComponent implements OnChanges  {
          this.setting.pageNumber = currentPage;
          this.getPageData();
          this.ChangeEvent.emit(this.setting);
- 
+         console.log(this.setting.pageNumber);
      }
 
      ngOnChanges(changes: any ) {
@@ -174,6 +195,11 @@ export class TutorialsComponent implements OnChanges  {
                this.ChangeEvent.emit(this.setting);
      }
 
+     controlClickEvent(data: any, eventName: string)
+     {
+
+     }
+
      onGridReady(params:any) {
          params.api.sizeColumnsToFit();
      }
@@ -186,6 +212,10 @@ export class TutorialsComponent implements OnChanges  {
         console.log(value);
      }
 
+    controlEventClick(data: any, eventName: string) {
+        console.log(data);
+        console.log(eventName);
+    }
     getPageData() {
         this.tempData = [];
 
