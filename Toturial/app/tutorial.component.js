@@ -22,6 +22,7 @@ var TutorialsComponent = (function () {
         this.elementRef = elementRef;
         this.columns = []; // string[] = ['ProductID', 'ProductName'];
         this.tempData = [];
+        this.pageSizes = [10, 20, 50, 100, 1000];
         this.setting = new gridSetting_1.gridSetting();
         this.ChangeEvent = new core_1.EventEmitter();
         this.SelectedItem = new core_1.EventEmitter();
@@ -29,7 +30,7 @@ var TutorialsComponent = (function () {
     }
     TutorialsComponent.prototype.getTotalPages = function () {
         var totalPageNumber = Math.floor(this.data.Total / this.setting.pageSize);
-        console.log(totalPageNumber);
+        //    console.log(totalPageNumber);
         if (this.data.Total % this.setting.pageSize > 0) {
             totalPageNumber = totalPageNumber + 1;
         }
@@ -41,16 +42,10 @@ var TutorialsComponent = (function () {
             text = column.formatCell(row, row[column.propertyName]);
         else
             text = row[column.propertyName];
-        // switch (column.columnType)
-        //{
-        //     case columnType.link:
-        //         text = '<a href="#" (click)= clicked("ff") >' + row[column.propertyName] + '</a>';
-        //         break;
-        //     case columnType.checkBox:
-        //         text = '<input type="checkbox" name= "vehicle" checked >';
-        //         break;
-        //}
         return text;
+    };
+    TutorialsComponent.prototype.onPageSizeChange = function (event) {
+        console.log('page size changed' + event);
     };
     TutorialsComponent.prototype.getPageRange = function () {
         var pages = [];
@@ -83,7 +78,7 @@ var TutorialsComponent = (function () {
         return pages;
     };
     TutorialsComponent.prototype.isLastPageDisabled = function () {
-        console.log(this.setting.pageNumber);
+        //  console.log(this.setting.pageNumber);
         if (this.setting) {
             if (this.setting.pageNumber && this.getTotalPages()) {
                 if (this.setting.pageNumber == this.getTotalPages()) {
@@ -123,7 +118,7 @@ var TutorialsComponent = (function () {
         this.setting.pageNumber = currentPage;
         this.getPageData();
         this.ChangeEvent.emit(this.setting);
-        console.log(this.setting.pageNumber);
+        console.log(this.setting);
     };
     TutorialsComponent.prototype.ngOnChanges = function (changes) {
         this.setting.sortDirection = '';
@@ -133,6 +128,7 @@ var TutorialsComponent = (function () {
         this.headerCheckBox.nativeElement.checked = false;
         this.getPageData();
         this.ChangeEvent.emit(this.setting);
+        console.log(this.setting);
     };
     TutorialsComponent.prototype.sortColumns = function (column) {
         if (column == this.setting.sortColumn) {
@@ -184,17 +180,17 @@ var TutorialsComponent = (function () {
         //   this.getPageData();
     };
     TutorialsComponent.prototype.onClick = function (value) {
-        console.log(value);
+        //  console.log(value);
     };
     TutorialsComponent.prototype.controlEventClick = function (data, eventName) {
-        console.log(data);
-        console.log(eventName);
+        // console.log(data);
+        //  console.log(eventName);
     };
     TutorialsComponent.prototype.getPageData = function () {
         this.tempData = [];
         if (this.setting.memoryGrid && this.setting.allowPaging) {
             var i = (this.setting.pageNumber - 1) * this.setting.pageSize;
-            console.log(i);
+            //   console.log(i);
             for (i; i < this.data.Data.length && i < (this.setting.pageNumber * this.setting.pageSize) + this.setting.pageSize; i++) {
                 this.tempData.push(this.data.Data[i]);
             }

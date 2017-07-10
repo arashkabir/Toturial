@@ -125,6 +125,7 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\cgrid.component.ts" />
     <TypeScriptCompile Include="app\column.ts" />
+    <TypeScriptCompile Include="app\eventObject.ts" />
     <TypeScriptCompile Include="app\gridInputData.ts" />
     <TypeScriptCompile Include="app\gridSetting.ts" />
     <TypeScriptCompile Include="app\main.ts" />

@@ -14,39 +14,43 @@ export class AppComponent {
 
     gridUpdate(event:any) {
         console.log(event);
+        console.log(event);
     }
     // string[] = ['ProductID', 'ProductName'];
     columns = [
         {
-            "headerName": "ProductName",
-            'propertyName': 'ProductName',
+            "headerName": "ProductID",
+            'propertyName': 'ProductID',
             'headerClasss': 'ffff',
-            'columnClasses': 'retret',
+          //  'columnClasses': 'col-md-2',
             'sortColumnName': 'retytret',
             'sortOrder': 'tyu',
             'isDefaultSort': true,
-            'formatCell': function (a: any, b: any) { return '444'}
+           // 'headerClasses': 'col-md-2',
+            'columnSize':'2000px'
+           // 'formatCell': function (a: any, b: any) { return '444'}
         },
          {
          "headerName": "ProductName",
         'propertyName': 'ProductName',
-        'headerClasss': 'ffff',
-        'columnClasses': 'retret',
+      //  'columnClasses': 'col-md-5',
         'sortColumnName': 'retytret',
         'sortOrder': 'tyu',
         'columnType': columnType.link,
         'eventName':'test',
-        'isDefaultSort': true
+        'isDefaultSort': true,
+      //  'headerClasses': 'col-md-5',
+        'columnSize': '10px'
         
     }
 ];
 
-    data = {
+    data:any = {
         'Total': 100,
         'Data':
         [
             {
-                "ProductID": 1,
+                "ProductID": 'fff ffff ffffff  fffff gg tttt tttt',
                 "ProductName": true
             },
             {

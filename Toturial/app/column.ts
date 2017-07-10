@@ -3,6 +3,7 @@
     headerName: string;
     propertyName: string;
     headerClasss: string;
+    columnSize: string;
     columnClasses: string;
     sortColumnName: string;
     sortOrder: string;

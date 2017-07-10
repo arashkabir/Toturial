@@ -16,32 +16,34 @@ var AppComponent = (function () {
         // string[] = ['ProductID', 'ProductName'];
         this.columns = [
             {
-                "headerName": "ProductName",
-                'propertyName': 'ProductName',
+                "headerName": "ProductID",
+                'propertyName': 'ProductID',
                 'headerClasss': 'ffff',
-                'columnClasses': 'retret',
+                //  'columnClasses': 'col-md-2',
                 'sortColumnName': 'retytret',
                 'sortOrder': 'tyu',
                 'isDefaultSort': true,
-                'formatCell': function (a, b) { return '444'; }
+                // 'headerClasses': 'col-md-2',
+                'columnSize': '2000px'
             },
             {
                 "headerName": "ProductName",
                 'propertyName': 'ProductName',
-                'headerClasss': 'ffff',
-                'columnClasses': 'retret',
+                //  'columnClasses': 'col-md-5',
                 'sortColumnName': 'retytret',
                 'sortOrder': 'tyu',
                 'columnType': column_1.columnType.link,
                 'eventName': 'test',
-                'isDefaultSort': true
+                'isDefaultSort': true,
+                //  'headerClasses': 'col-md-5',
+                'columnSize': '10px'
             }
         ];
         this.data = {
             'Total': 100,
             'Data': [
                 {
-                    "ProductID": 1,
+                    "ProductID": 'fff ffff ffffff  fffff gg tttt tttt',
                     "ProductName": true
                 },
                 {
@@ -53,6 +55,7 @@ var AppComponent = (function () {
     }
     // columns: Array<column>;
     AppComponent.prototype.gridUpdate = function (event) {
+        console.log(event);
         console.log(event);
     };
     //        {

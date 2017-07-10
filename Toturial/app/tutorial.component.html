@@ -1,4 +1,4 @@
-﻿<div style="height: 10%;" class="text-right pull-left" *ngIf="setting.allowPaging">
+﻿<div style="height: 10%;" class="text-right pull-right" *ngIf="setting.allowPaging">
     <nav aria-label="Page navigation example">
         <ul class="pagination pagination-sm justify-content-center">
             <li class="page-item" [ngClass]="isFirstPageDisabled()" (click)="onPageChange(1)">
@@ -31,20 +31,27 @@
         </ul>
     </nav>
 </div>        
-
-<table>
+<div class="pull-left">
+    <span><b>Total Records:{{data.Total}}</b></span>
+    <select (change)="onPageSizeChange($event.target.value)" [(ngModel)]="setting.pageSize">
+        <option *ngFor="let size of pageSizes" value={{size}}>
+            {{size}}
+        </option>
+    </select>
+</div>
+<table class="table table-bordered table-hover table-responsive" >
     <tr>
-        <th (click)="selectAll(headerCheckBox.checked)"  ><input #headerCheckBox type="checkbox"  ></th>
+        <th style="width:20px initial" (click)="selectAll(headerCheckBox.checked)"   ><input #headerCheckBox type="checkbox"  ></th>
         
-        <th  *ngFor="let column of columns" (click)="sortColumns(column.propertyName)">{{column.headerName}}
+        <th  [ngClass]="column.headerClasses" [style.width]="columnSize"  *ngFor="let column of columns" (click)="sortColumns(column.propertyName)">{{column.headerName}}
                     <div *ngIf="column==setting.sortColumn && setting.sortDirection=='asc'" class="glyphicon glyphicon-sort-by-alphabet" ></div>
                     <div *ngIf="column==setting.sortColumn && setting.sortDirection=='desc'" class="glyphicon glyphicon-sort-by-alphabet-alt"></div>
         </th>
     </tr>
 
-    <tr *ngFor="let item of tempData" >
-        <td (click)="clicked(item,checkBox.checked)"><input #test class="gridCheck" #checkBox type="checkbox"></td>
-        <td class="" *ngFor="let column of columns" [ngSwitch]="column.columnType">
+    <tr  *ngFor="let item of tempData" >
+        <td style="width:20px" (click)="clicked(item,checkBox.checked)"><input #test class="gridCheck" #checkBox type="checkbox"></td>
+        <td  [ngClass]="column.columnClasses"  *ngFor="let column of columns" [ngSwitch]="column.columnType">
             <div *ngSwitchCase="1" >{{cellHtml(item,column)}}></div>
             <div *ngSwitchCase="2"><a href="#" (click)="controlEventClick(item,column.eventName)" >{{cellHtml(item,column)}}</a></div>
             <div *ngSwitchCase="3"><input type="checkbox"  [checked]="item[column.propertyName]" /></div>

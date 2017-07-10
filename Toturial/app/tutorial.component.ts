@@ -23,7 +23,7 @@ export class TutorialsComponent implements OnChanges  {
     @Input() columns: Array<column> = [];// string[] = ['ProductID', 'ProductName'];
     @Input() data: gridInputData;
     private  tempData: Array<any>=[];
-
+    private pageSizes: Array<number> = [10, 20, 50, 100, 1000];
     @Input() setting: gridSetting=new gridSetting();
     @ViewChildren('test') input:any;
     @ViewChild('headerCheckBox') headerCheckBox: any;
@@ -36,7 +36,7 @@ export class TutorialsComponent implements OnChanges  {
 
      getTotalPages():number {
          var totalPageNumber: number = Math.floor(this.data.Total / this.setting.pageSize);
-         console.log(totalPageNumber);
+     //    console.log(totalPageNumber);
          if ( this.data.Total % this.setting.pageSize > 0)
          {
              totalPageNumber = totalPageNumber + 1;
@@ -51,18 +51,11 @@ export class TutorialsComponent implements OnChanges  {
              text= column.formatCell(row, row[column.propertyName]);
          else
              text= row[column.propertyName];
-
-        // switch (column.columnType)
-        //{
-        //     case columnType.link:
-        //         text = '<a href="#" (click)= clicked("ff") >' + row[column.propertyName] + '</a>';
-        //         break;
-        //     case columnType.checkBox:
-        //         text = '<input type="checkbox" name= "vehicle" checked >';
-        //         break;
-        //}
-
          return text;
+     }
+
+     onPageSizeChange(event:any) {
+         console.log('page size changed' + event);
      }
      getPageRange() {
          let pages: number[] = [];
@@ -93,7 +86,7 @@ export class TutorialsComponent implements OnChanges  {
      }
 
      isLastPageDisabled() {
-         console.log(this.setting.pageNumber);
+       //  console.log(this.setting.pageNumber);
          if (this.setting) {
              if (this.setting.pageNumber && this.getTotalPages()) {
                  if (this.setting.pageNumber == this.getTotalPages()) {
@@ -131,7 +124,7 @@ export class TutorialsComponent implements OnChanges  {
          this.setting.pageNumber = currentPage;
          this.getPageData();
          this.ChangeEvent.emit(this.setting);
-         console.log(this.setting.pageNumber);
+         console.log(this.setting);
      }
 
      ngOnChanges(changes: any ) {
@@ -142,6 +135,7 @@ export class TutorialsComponent implements OnChanges  {
          this.headerCheckBox.nativeElement.checked = false;
          this.getPageData();
          this.ChangeEvent.emit(this.setting);
+         console.log(this.setting);
      }
 
      sortColumns(column: string) {
@@ -209,19 +203,19 @@ export class TutorialsComponent implements OnChanges  {
      } 
 
     onClick(value:any) {
-        console.log(value);
+      //  console.log(value);
      }
 
     controlEventClick(data: any, eventName: string) {
-        console.log(data);
-        console.log(eventName);
+       // console.log(data);
+      //  console.log(eventName);
     }
     getPageData() {
         this.tempData = [];
 
         if (this.setting.memoryGrid && this.setting.allowPaging) {
             var i = (this.setting.pageNumber - 1) * this.setting.pageSize;
-            console.log(i);
+         //   console.log(i);
             for (i;  i<this.data.Data.length && i < (this.setting.pageNumber * this.setting.pageSize) + this.setting.pageSize; i++) {
                 this.tempData.push(this.data.Data[i]);
               //  console.log(this.setting.pageNumber);
